@@ -14,13 +14,14 @@
     </properties>
     
     <dependencies>
+        
         <!-- https://mvnrepository.com/artifact/org.antlr/stringtemplate -->
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>stringtemplate</artifactId>
             <version>4.0.2</version>
         </dependency>
-                
+               
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -32,5 +33,20 @@
             <artifactId>javax.mail-api</artifactId>
             <version>1.5.6</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        
     </dependencies>
 </project>
