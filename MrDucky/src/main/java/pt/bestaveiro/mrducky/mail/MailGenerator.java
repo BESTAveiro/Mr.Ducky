@@ -5,6 +5,7 @@
  */
 package pt.bestaveiro.mrducky.mail;
 
+import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -34,7 +35,7 @@ public class MailGenerator {
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
     }
     
-    public boolean sendEmail(String recipient, String subject, String content) {
+    public boolean sendEmail(List<String> recipients, String subject, String content) {
         
         // Create email session
         Session mailSession = Session.getDefaultInstance(mailServerProperties, null);
@@ -42,7 +43,11 @@ public class MailGenerator {
         try {
             // Create email
             MimeMessage mail = new MimeMessage(mailSession);
-            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            
+            for (String recipient : recipients) {
+                mail.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            }
+            
             mail.setSubject(subject);
             mail.setContent(content, "text/html");
             

@@ -55,5 +55,12 @@
             <version>1.4</version>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/com.zaubersoftware.taglibs/dateutils -->
+        <dependency>
+            <groupId>com.zaubersoftware.taglibs</groupId>
+            <artifactId>dateutils</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+        
     </dependencies>
 </project>

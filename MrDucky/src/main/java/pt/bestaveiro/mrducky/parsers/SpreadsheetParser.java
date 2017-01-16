@@ -9,18 +9,43 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import pt.bestaveiro.mrducky.client.Constants;
+import pt.bestaveiro.mrducky.client.Errors;
+import pt.bestaveiro.mrducky.mail.MailGenerator;
 
 /**
  *
  * @author jeronimo
  */
 public class SpreadsheetParser {
+    
+    public static JSONObject parse(String spreadsheetId) {
+        
+        // Build spreadsheet url
+        String url = "http://gsx2json.com/api?id=" + spreadsheetId;
+        
+        
+        // Retrieve data from the spreadsheet
+        try {
+            JSONObject json = new JSONObject(
+                    IOUtils.toString(new URL(url), Charset.forName("UTF-8")));
+            
+            return json;
+            
+        } catch (IOException ex) {
+            
+            Errors.sendError("Error parsing data from spreadsheet: " + spreadsheetId, ex);
+            
+            return null;
+        }        
+    }
     
     public static void main(String[] args){        
         
