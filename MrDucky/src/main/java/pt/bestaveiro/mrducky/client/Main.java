@@ -5,12 +5,11 @@
  */
 package pt.bestaveiro.mrducky.client;
 
+import java.util.Arrays;
 import java.util.List;
-import org.json.JSONObject;
-import static pt.bestaveiro.mrducky.client.Tasks.readBirthdays;
 import pt.bestaveiro.mrducky.core.Birthday;
 import pt.bestaveiro.mrducky.core.Configuration;
-import pt.bestaveiro.mrducky.parsers.SpreadsheetParser;
+import pt.bestaveiro.mrducky.mail.MailGenerator;
 
 /**
  *
@@ -27,6 +26,12 @@ public class Main {
                         
         // Read birthdays
         List<Birthday> birthdays = Tasks.readBirthdays(configuration.getBirthdaySpreadsheet());
+        
+        // Sent initial mail
+        MailGenerator jen = new MailGenerator();
+        jen.sendEmail(configuration.getEmail(), configuration.getPassword(), 
+                Arrays.asList(Constants.ADMIN.split(";")), 
+                "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
         
         // Schedule tasks
         Tasks.scheduleDailyTask();

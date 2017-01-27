@@ -35,7 +35,7 @@ public class MailGenerator {
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
     }
     
-    public boolean sendEmail(List<String> recipients, String subject, String content) {
+    public boolean sendEmail(String sender, String password, List<String> recipients, String subject, String content) {
         
         // Create email session
         Session mailSession = Session.getDefaultInstance(mailServerProperties, null);
@@ -53,8 +53,7 @@ public class MailGenerator {
             
             // Send email
             Transport transport = mailSession.getTransport("smtp");
-            transport.connect("smtp.gmail.com", "mr.ducky.aveiro@gmail.com", 
-                    "valentinaaveiro");
+            transport.connect("smtp.gmail.com", sender, password);
             transport.sendMessage(mail, mail.getAllRecipients());
             transport.close();
                 

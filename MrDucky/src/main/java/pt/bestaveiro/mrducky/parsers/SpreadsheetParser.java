@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import pt.bestaveiro.mrducky.client.Constants;
 import pt.bestaveiro.mrducky.client.Errors;
+import pt.bestaveiro.mrducky.core.Configuration;
 import pt.bestaveiro.mrducky.mail.MailGenerator;
 
 /**
@@ -41,7 +42,8 @@ public class SpreadsheetParser {
             
         } catch (IOException ex) {
             
-            Errors.sendError("Error parsing data from spreadsheet: " + spreadsheetId, ex);
+            Errors.sendError("mr.ducky.aveiro@gmail.com", "valentinaaveiro", 
+                    "Error parsing data from spreadsheet: " + spreadsheetId, ex);
             
             return null;
         }        

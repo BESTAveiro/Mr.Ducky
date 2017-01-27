@@ -15,12 +15,12 @@ import pt.bestaveiro.mrducky.mail.MailGenerator;
  */
 public class Errors {
     
-    public static void sendError(String description, Exception ex) {
+    public static void sendError(String sender, String password, String description, Exception ex) {
         
         // Send e-mail with error to admin
         MailGenerator mailGen = new MailGenerator();
         List<String> list = Arrays.asList(Constants.ADMIN.split(";"));
-        mailGen.sendEmail(list, "[Mr. Ducky][Error] Quack Quack Error :(", 
+        mailGen.sendEmail(sender, password, list, "[Mr. Ducky][Error] Quack Quack Error :(", 
                 description + "<br/>" + ex.getMessage());
 
         // Print stack trace

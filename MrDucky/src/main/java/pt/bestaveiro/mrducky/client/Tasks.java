@@ -36,8 +36,8 @@ public class Tasks {
         
         // This code will run every day at 2 am
         Date date2am = new Date();
-        date2am.setHours(1);
-        date2am.setMinutes(31);        
+        date2am.setHours(2);
+        date2am.setMinutes(0);        
         int period = 1000*60*60*24;
         
         // Schedule task
@@ -153,8 +153,8 @@ public class Tasks {
         
         // This code will run at 9 am of today
         Date date9am = new Date();
-        date9am.setHours(1);
-        date9am.setMinutes(50);        
+        date9am.setHours(9);
+        date9am.setMinutes(0);        
         
         // Schedule task
         EmailTask task = new EmailTask(birthday, configuration);        
@@ -184,7 +184,8 @@ public class Tasks {
             String subject = replaceTags(configuration.getMailSubject(), birthday.getTags());
             String content = replaceTags(configuration.getMailContent(), birthday.getTags());
             
-            mailGen.sendEmail(recipients, subject, content);
+            mailGen.sendEmail(configuration.getEmail(), configuration.getPassword(), 
+                    recipients, subject, content);
             
             System.out.println("Sent e-mail -> " + birthday.getName());
         }       
