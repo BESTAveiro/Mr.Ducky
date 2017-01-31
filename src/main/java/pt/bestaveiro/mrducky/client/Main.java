@@ -19,21 +19,29 @@ public class Main {
     
     public static void main(String[] args) {
                
-        System.out.println("Running ...");
-        
-        // Read configuration
-        Configuration configuration = Tasks.readConfiguration();
-                        
-        // Read birthdays
-        List<Birthday> birthdays = Tasks.readBirthdays(configuration.getBirthdaySpreadsheet());
-        
-        // Sent initial mail
-        MailGenerator jen = new MailGenerator();
-        jen.sendEmail(configuration.getEmail(), configuration.getPassword(), 
-                Arrays.asList(Constants.ADMIN.split(";")), 
-                "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
-        
-        // Schedule tasks
-        Tasks.scheduleDailyTask();
-    }    
+        while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {}
+
+            System.out.println("Worker process woke up");
+
+            System.out.println("Running ...");
+
+            // Read configuration
+            Configuration configuration = Tasks.readConfiguration();
+
+            // Read birthdays
+            List<Birthday> birthdays = Tasks.readBirthdays(configuration.getBirthdaySpreadsheet());
+
+            // Sent initial mail
+            MailGenerator jen = new MailGenerator();
+            jen.sendEmail(configuration.getEmail(), configuration.getPassword(),
+                    Arrays.asList(Constants.ADMIN.split(";")),
+                    "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
+
+            // Schedule tasks
+            Tasks.scheduleDailyTask();
+        }
+    }
 }
