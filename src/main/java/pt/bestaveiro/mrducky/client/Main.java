@@ -7,6 +7,7 @@ package pt.bestaveiro.mrducky.client;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import pt.bestaveiro.mrducky.core.Birthday;
 import pt.bestaveiro.mrducky.core.Configuration;
 import pt.bestaveiro.mrducky.mail.MailGenerator;
@@ -21,10 +22,8 @@ public class Main {
                
         while (true) {
             try {
-                Thread.sleep(1000);
+                TimeUnit.HOURS.sleep(24);
             } catch (InterruptedException e) {}
-
-            System.out.println("Worker process woke up");
 
             System.out.println("Running ...");
 
