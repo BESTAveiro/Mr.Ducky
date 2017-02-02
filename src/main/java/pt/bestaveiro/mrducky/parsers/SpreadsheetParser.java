@@ -9,17 +9,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import pt.bestaveiro.mrducky.client.Constants;
-import pt.bestaveiro.mrducky.client.Errors;
-import pt.bestaveiro.mrducky.core.Configuration;
-import pt.bestaveiro.mrducky.mail.MailGenerator;
+import pt.bestaveiro.mrducky.error.Errors;
 
 /**
  *
@@ -42,9 +38,7 @@ public class SpreadsheetParser {
             
         } catch (IOException ex) {
             
-            Errors.sendError("mr.ducky.aveiro@gmail.com", "valentinaaveiro", 
-                    "Error parsing data from spreadsheet: " + spreadsheetId, ex);
-            
+            Errors.sendError("", ex);            
             return null;
         }        
     }

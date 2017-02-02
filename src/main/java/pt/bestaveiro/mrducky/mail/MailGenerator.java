@@ -35,25 +35,29 @@ public class MailGenerator {
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
     }
     
-    public boolean sendEmail(String sender, String password, List<String> recipients, String subject, String content) {
+    public boolean sendEmail(String senderEmail, String senderPassword, 
+            List<String> recipientsEmails, String mailSubject, 
+            String mailContent) {
         
         // Create email session
         Session mailSession = Session.getDefaultInstance(mailServerProperties, null);
         
         try {
-            // Create email
+            // Create mail
             MimeMessage mail = new MimeMessage(mailSession);
             
-            for (String recipient : recipients) {
+            // Set recipients emails
+            for (String recipient : recipientsEmails) {
                 mail.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             }
             
-            mail.setSubject(subject);
-            mail.setContent(content, "text/html");
+            // Set mail subject and content
+            mail.setSubject(mailSubject);
+            mail.setContent(mailContent, "text/html"); // Email content can be in HTML format
             
             // Send email
             Transport transport = mailSession.getTransport("smtp");
-            transport.connect("smtp.gmail.com", sender, password);
+            transport.connect("smtp.gmail.com", senderEmail, senderPassword);
             transport.sendMessage(mail, mail.getAllRecipients());
             transport.close();
                 
@@ -63,7 +67,5 @@ public class MailGenerator {
         }
         
         return true;
-    }
-    
-    
+    }   
 }
