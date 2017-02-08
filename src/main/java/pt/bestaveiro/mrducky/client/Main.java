@@ -26,7 +26,7 @@ public class Main {
     "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
         
             // Run anniversary process
-            //Tasks.sendAnniversaries();
+            Tasks.sendAnniversaries();
             
             try {
                 TimeUnit.HOURS.sleep(24);
