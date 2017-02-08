@@ -29,5 +29,7 @@ public class Errors {
 
         mailGenerator.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(),
                 conf.getAdminsEmails(), subject, content); 
+        
+        System.out.println(subject + "\n\n" + content);
     }    
 }

@@ -69,7 +69,7 @@ if "%JAVACMD%"=="" set JAVACMD=java
 
 if "%REPO%"=="" set REPO=%BASEDIR%\repo
 
-set CLASSPATH="%BASEDIR%"\etc;"%REPO%"\org\antlr\stringtemplate\4.0.2\stringtemplate-4.0.2.jar;"%REPO%"\org\antlr\antlr-runtime\3.3\antlr-runtime-3.3.jar;"%REPO%"\javax\mail\mail\1.4\mail-1.4.jar;"%REPO%"\javax\activation\activation\1.1\activation-1.1.jar;"%REPO%"\javax\mail\javax.mail-api\1.5.6\javax.mail-api-1.5.6.jar;"%REPO%"\org\json\json\20160810\json-20160810.jar;"%REPO%"\commons-io\commons-io\2.5\commons-io-2.5.jar;"%REPO%"\com\zaubersoftware\taglibs\dateutils\1.0.8\dateutils-1.0.8.jar;"%REPO%"\taglibs\standard\1.1.2\standard-1.1.2.jar;"%REPO%"\commons-lang\commons-lang\2.5\commons-lang-2.5.jar;"%REPO%"\pt\bestaveiro\MrDucky\1.0\MrDucky-1.0.jar
+set CLASSPATH="%BASEDIR%"\etc;"%REPO%"\org\antlr\stringtemplate\4.0.2\stringtemplate-4.0.2.jar;"%REPO%"\org\antlr\antlr-runtime\3.3\antlr-runtime-3.3.jar;"%REPO%"\javax\mail\mail\1.4\mail-1.4.jar;"%REPO%"\javax\activation\activation\1.1\activation-1.1.jar;"%REPO%"\javax\mail\javax.mail-api\1.5.6\javax.mail-api-1.5.6.jar;"%REPO%"\org\json\json\20160810\json-20160810.jar;"%REPO%"\commons-io\commons-io\2.5\commons-io-2.5.jar;"%REPO%"\com\zaubersoftware\taglibs\dateutils\1.0.8\dateutils-1.0.8.jar;"%REPO%"\taglibs\standard\1.1.2\standard-1.1.2.jar;"%REPO%"\commons-lang\commons-lang\2.5\commons-lang-2.5.jar;"%REPO%"\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;"%REPO%"\pt\bestaveiro\MrDucky\1.0\MrDucky-1.0.jar
 set EXTRA_JVM_ARGUMENTS=
 goto endInit
 

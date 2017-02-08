@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import pt.bestaveiro.mrducky.core.Configuration;
-import pt.bestaveiro.mrducky.core.Constants;
 import pt.bestaveiro.mrducky.mail.MailGenerator;
 
 /**
@@ -27,8 +26,7 @@ public class Main {
         // Sent initial mail
             MailGenerator jen = new MailGenerator();
             Configuration conf = Configuration.getInstance();
-            jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(),
-                    Arrays.asList(conf.getAdminsEmails()),
+            jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), conf.getAdminsEmails(),
 "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online! " + sdf.format(cal.getTime()));
         
         // Run anniversary process
