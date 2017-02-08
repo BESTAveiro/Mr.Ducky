@@ -95,9 +95,7 @@ public class Tasks {
                 } else {
                     try {
                         tags.put(key, birtdayData.getString(key));
-                    } catch (Exception ex) {
-                        Errors.sendError("Can't get attribute birthday date for an instance", ex);
-                    }
+                    } catch (Exception ex) {}
                 }
             }
             
