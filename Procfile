@@ -1,1 +1,1 @@
-worker: sh target/bin/worker
+web:    java -jar target/mrducky.jar
