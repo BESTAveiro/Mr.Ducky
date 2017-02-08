@@ -19,17 +19,13 @@ public class Main {
     
     public static void main(String[] args) {               
         
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        System.out.println( sdf.format(cal.getTime()) );
-        
         // Sent initial mail
             MailGenerator jen = new MailGenerator();
             Configuration conf = Configuration.getInstance();
             jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), conf.getAdminsEmails(),
-"[Mr.Ducky] Quack Quack I am on", "Hey dude I am online! " + sdf.format(cal.getTime()));
+"[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
         
         // Run anniversary process
-        Tasks.sendAnniversaries();
+        //Tasks.sendAnniversaries();
     }
 }
