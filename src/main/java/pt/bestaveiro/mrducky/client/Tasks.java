@@ -29,10 +29,10 @@ import pt.bestaveiro.mrducky.parsers.SpreadsheetParser;
 public class Tasks {
     
     public static void sendAnniversaries() {
-        
+                
         // Get configuration
         Configuration conf = Configuration.getInstance();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); // Date formatter
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM"); // Date formatter
         
         // Read birthdays from spreadsheet
         List<Birthday> birthdaysList = readBirthdays(conf.getBirthdaySpreadsheetId());
@@ -41,7 +41,7 @@ public class Tasks {
         LocalDate todayDate = LocalDate.now();
         
         // Send mail about the person that have birthdays today
-        for (Birthday birthday : birthdaysList) {                
+        for (Birthday birthday : birthdaysList) {                            
             if (formatter.format(todayDate).equals(formatter.format(birthday.getDate()))) {
                 // Send e-mail
                 sendAnniversaryEmail(birthday, conf);
@@ -98,7 +98,7 @@ public class Tasks {
                     } catch (Exception ex) {}
                 }
             }
-            
+                        
             if (name != null && date != null) {
                 Birthday bithday = new Birthday(name, date, tags);
                 birthdays.add(bithday);
@@ -119,8 +119,7 @@ public class Tasks {
 
         // Send mail
         mailGen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), 
-                conf.getRecipientsEmails(), conf.getMailSubject(), 
-                conf.getMailContent());
+                conf.getRecipientsEmails(), subject, content);
 
         System.out.println("Sent anniversary mail to " + birthday.getName());       
     }
