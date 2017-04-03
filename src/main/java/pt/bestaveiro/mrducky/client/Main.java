@@ -16,21 +16,14 @@ import pt.bestaveiro.mrducky.mail.MailGenerator;
 public class Main {
     
     public static void main(String[] args) {               
+                
+        // Sent initial mail        
+        MailGenerator jen = new MailGenerator();
+        Configuration conf = Configuration.getInstance();
+        jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), conf.getAdminsEmails(),
+"[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
         
-        while (true) {      
-        
-            // Sent initial mail        
-            MailGenerator jen = new MailGenerator();
-            Configuration conf = Configuration.getInstance();
-            jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), conf.getAdminsEmails(),
-    "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
-        
-            // Run anniversary process
-            Tasks.sendAnniversaries();
-            
-            try {
-                TimeUnit.HOURS.sleep(24);
-            } catch (InterruptedException e) {}
-        }
+        // Run anniversary process
+        Tasks.sendAnniversaries();
     }
 }
