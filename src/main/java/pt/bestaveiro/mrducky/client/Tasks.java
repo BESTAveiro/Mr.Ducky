@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.stringtemplate.v4.ST;
 import pt.bestaveiro.mrducky.core.Birthday;
 import pt.bestaveiro.mrducky.core.Configuration;
 import pt.bestaveiro.mrducky.error.Errors;
@@ -125,13 +125,11 @@ public class Tasks {
     }
     
     private static String replaceTags(String text, Map<String, String> tasks) {
-        
-        ST st = new ST(text);
-        
-        for (String tag : tasks.keySet()) {
-            st.add(tag, tasks.get(tag));
+                                
+        for (Entry<String, String> tag : tasks.entrySet()) {            
+            text = text.replaceAll("\\[" + tag.getKey() + "\\]", tag.getValue());
         }
         
-        return st.render();
+        return text;
     }
 }
