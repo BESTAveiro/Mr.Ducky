@@ -21,8 +21,8 @@ public class Main {
         MailGenerator jen = new MailGenerator();
         Configuration conf = Configuration.getInstance();
 
-        jen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), conf.getAdminsEmails(),
-"[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
+        jen.sendEmail(conf.getSenderEmail(), conf.getSenderName(), conf.getSenderPassword(), 
+        conf.getAdminsEmails(), "[Mr.Ducky] Quack Quack I am on", "Hey dude I am online!");
         
         // Run anniversary process
         Tasks.sendAnniversaries();

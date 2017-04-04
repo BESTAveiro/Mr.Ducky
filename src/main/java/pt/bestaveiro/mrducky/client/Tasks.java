@@ -118,7 +118,7 @@ public class Tasks {
         String content = replaceTags(conf.getMailContent(), birthday.getParameters());
 
         // Send mail
-        mailGen.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(), 
+        mailGen.sendEmail(conf.getSenderEmail(), conf.getSenderName(), conf.getSenderPassword(), 
                 conf.getRecipientsEmails(), subject, content);
 
         System.out.println("Sent anniversary mail to " + birthday.getName());       

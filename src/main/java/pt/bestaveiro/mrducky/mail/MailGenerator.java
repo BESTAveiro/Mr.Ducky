@@ -5,6 +5,7 @@
  */
 package pt.bestaveiro.mrducky.mail;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;
@@ -35,7 +36,7 @@ public class MailGenerator {
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
     }
     
-    public boolean sendEmail(String senderEmail, String senderPassword, 
+    public boolean sendEmail(String senderEmail, String senderName, String senderPassword, 
             List<String> recipientsEmails, String mailSubject, 
             String mailContent) {
         
@@ -45,6 +46,9 @@ public class MailGenerator {
         try {
             // Create mail
             MimeMessage mail = new MimeMessage(mailSession);
+            
+            // Set from
+            mail.setFrom(new InternetAddress(senderEmail, senderName));
             
             // Set recipients emails
             for (String recipient : recipientsEmails) {
@@ -61,7 +65,7 @@ public class MailGenerator {
             transport.sendMessage(mail, mail.getAllRecipients());
             transport.close();
                 
-        } catch(MessagingException ex) {
+        } catch(MessagingException | UnsupportedEncodingException ex) {
             ex.printStackTrace();
             return false;
         }

@@ -18,6 +18,7 @@ public class Configuration {
     
     private String senderEmail;
     private String senderPassword;
+    private String senderName;
     
     private List<String> recipientsEmails;
     
@@ -59,6 +60,7 @@ public class Configuration {
         // Set configuration parameters
         this.senderEmail = data.getString("senderemail");
         this.senderPassword = data.getString("senderpassword");
+        this.senderName = data.getString("sendername");
         
         this.recipientsEmails = Arrays.asList(data.getString("recipientsemails").split(";"));
         
@@ -95,6 +97,14 @@ public class Configuration {
 
     public void setSenderPassword(String senderPassword) {
         this.senderPassword = senderPassword;
+    }
+    
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 
     public List<String> getRecipientsEmails() {

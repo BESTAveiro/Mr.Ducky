@@ -27,7 +27,7 @@ public class Errors {
         String subject = "[Mr. Ducky][Anniversary][Error] " + message;
         String content = ex.getMessage() + "<br/><br/>" + ExceptionUtils.getStackTrace(ex);
 
-        mailGenerator.sendEmail(conf.getSenderEmail(), conf.getSenderPassword(),
+        mailGenerator.sendEmail(conf.getSenderEmail(), conf.getSenderName(), conf.getSenderPassword(),
                 conf.getAdminsEmails(), subject, content); 
         
         System.out.println(subject + "\n\n" + content);
