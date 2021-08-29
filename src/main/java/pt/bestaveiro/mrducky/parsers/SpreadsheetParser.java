@@ -30,17 +30,25 @@ public class SpreadsheetParser {
         
         
         // Retrieve data from the spreadsheet
-        try {
-            JSONObject json = new JSONObject(
-                    IOUtils.toString(new URL(url), Charset.forName("UTF-8")));
-            
-            return json;
-            
-        } catch (IOException ex) {
-            
-            Errors.sendError("", ex);            
-            return null;
-        }        
+        int repeat = 0;
+        boolean succeeded = false;
+        while (!succeeded) {
+            try {
+                JSONObject json = new JSONObject(
+                        IOUtils.toString(new URL(url), Charset.forName("UTF-8")));
+
+                succeeded = true;
+                return json;
+
+            } catch (IOException ex) {
+                repeat++;
+                if (repeat == 10) {
+                    Errors.sendError("", ex);
+                    return null;
+                }
+            }
+        }
+        return null;
     }
     
 }
