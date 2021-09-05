@@ -26,7 +26,7 @@ public class SpreadsheetParser {
     public static JSONObject parse(String spreadsheetId) {
         
         // Build spreadsheet url
-        String url = "http://gsx2json.com/api?id=" + spreadsheetId + "sheet=1";
+        String url = "http://gsx2json.com/api?id=" + spreadsheetId + "sheet=Folha1";
         
         
         // Retrieve data from the spreadsheet
