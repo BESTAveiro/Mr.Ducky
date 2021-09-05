@@ -26,13 +26,13 @@ public class SpreadsheetParser {
     public static JSONObject parse(String spreadsheetId) {
         
         // Build spreadsheet url
-        String url = "http://gsx2json.com/api?id=" + spreadsheetId;
+        String url = "http://gsx2json.com/api?id=" + spreadsheetId + "sheet=1";
         
         
         // Retrieve data from the spreadsheet
         int repeat = 0;
         boolean succeeded = false;
-        while (!succeeded) {
+        while (!succeeded || repeat < 10) {
             try {
                 JSONObject json = new JSONObject(
                         IOUtils.toString(new URL(url), Charset.forName("UTF-8")));
