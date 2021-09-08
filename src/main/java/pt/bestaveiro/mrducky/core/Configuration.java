@@ -58,18 +58,18 @@ public class Configuration {
         JSONObject data = json.getJSONArray("rows").getJSONObject(0);
         
         // Set configuration parameters
-        this.senderEmail = data.getString("senderemail");
-        this.senderPassword = data.getString("senderpassword");
-        this.senderName = data.getString("sendername");
+        this.senderEmail = data.getString("Sender Email");
+        this.senderPassword = data.getString("Sender Password");
+        this.senderName = data.getString("Sender Name");
         
-        this.recipientsEmails = Arrays.asList(data.getString("recipientsemails").split(";"));
+        this.recipientsEmails = Arrays.asList(data.getString("Recipients Emails").split(";"));
         
-        this.birthdaySpreadsheetId = data.getString("birthdayspreadsheetid");
+        this.birthdaySpreadsheetId = data.getString("Birthday Spreadsheet Id");
         
-        this.mailSubject = data.getString("mailsubject");
-        this.mailContent = data.getString("mailcontent");
+        this.mailSubject = data.getString("Mail Subject");
+        this.mailContent = data.getString("Mail Content");
         
-        this.adminsEmails = Arrays.asList(data.getString("adminsemails").split(";"));
+        this.adminsEmails = Arrays.asList(data.getString("Admins Emails").split(";"));
     }
     
     /**
