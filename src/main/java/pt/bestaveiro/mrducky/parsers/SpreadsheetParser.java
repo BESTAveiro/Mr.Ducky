@@ -22,13 +22,13 @@ import pt.bestaveiro.mrducky.error.Errors;
  * @author jeronimo
  */
 public class SpreadsheetParser {
-    
+
     public static JSONObject parse(String spreadsheetId) {
-        
+
         // Build spreadsheet url
         String url = "http://gsx2json.com/api?id=" + spreadsheetId + "&sheet=Folha1";
-        
-        
+
+
         // Retrieve data from the spreadsheet
         int repeat = 0;
         boolean succeeded = false;
@@ -50,5 +50,5 @@ public class SpreadsheetParser {
         }
         return null;
     }
-    
+
 }
