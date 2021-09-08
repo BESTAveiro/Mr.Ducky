@@ -34,6 +34,7 @@ public class MailGenerator {
         mailServerProperties.put("mail.smtp.port", "587");
         mailServerProperties.put("mail.smtp.auth", "true");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
+        mailServerProperties.put("mail.smtp.ssl.protocols", "TLSv1.2");
     }
     
     public boolean sendEmail(String senderEmail, String senderName, String senderPassword, 
