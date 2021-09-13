@@ -28,13 +28,14 @@ public class MailGenerator {
     }
     
     private void initialize() {
-        
+
         // Set mail server properties
         mailServerProperties = System.getProperties();
         mailServerProperties.put("mail.smtp.port", "587");
         mailServerProperties.put("mail.smtp.auth", "true");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
         mailServerProperties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        mailServerProperties.put("mail.smtp.ssl.ciphersuites", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256");
     }
     
     public boolean sendEmail(String senderEmail, String senderName, String senderPassword, 

@@ -75,17 +75,17 @@ public class Tasks {
             
             for (String key : birtdayData.keySet()) {
                 
-                if (key.equalsIgnoreCase("name")) { // Name
+                if (key.equalsIgnoreCase("Name")) { // Name
                     try {
-                        name = birtdayData.getString("name");
+                        name = birtdayData.getString("Name");
                         tags.put("name", name);
                     } catch (Exception ex) {
                         Errors.sendError("Can't get attribute name for an instance", ex);
                         name = null;
                     }
-                } else if (key.equalsIgnoreCase("birthdaydate")) {
+                } else if (key.equalsIgnoreCase("Birthday Date")) {
                     try {
-                        String dateStr = birtdayData.getString("birthdaydate");                    
+                        String dateStr = birtdayData.getString("Birthday Date");
                         date = LocalDate.parse(dateStr, formatter);
                         tags.put("birthdaydate", dateStr);
                     } catch (Exception ex) {
